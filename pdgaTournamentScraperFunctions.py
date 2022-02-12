@@ -64,7 +64,7 @@ def scrapePdgaData(url):
     eventInfo['Date'] = infoTag.find(class_='tournament-date').text.split(' ', 1)[1]
     eventInfo['Location'] = infoTag.find(class_='tournament-location').text.split(' ', 1)[1]
     eventInfo['TD'] = infoTag.find(class_='tournament-director').text.split(' ', 2)[2]
-    eventInfo['nRounds'] = list(soup.findAll('th', text=re.compile('Rd'))[-1].text)[-1]
+    eventInfo['nRounds'] = int(list(soup.findAll('th', text=re.compile('Rd'))[-1].text)[-1])
 
     eventData = {}
 
